@@ -1,10 +1,10 @@
 <?
   /***
    A PHP Class turn the usage of MYSQL database to real simple and convenient.
-   > Version:  	1.0
+   > Version:		1.0.1
    > Author:		MineS Chan (mineschan@gmail.com)
    > License: 		LGPL
-   > Last updated: 	12 April ,2013
+   > Last updated: 	17 April ,2013
   ***/
 
   class DB
@@ -126,7 +126,7 @@
     	return $this->queryUniqueObject($sql);    
     }
     
-    function fetchAll($where = NULL,$order = NULL){
+    function fetchAll($where = NULL,$order = NULL, $debug = -1){
 		$sql = "SELECT {$this->qField} FROM $this->table";
 		
 		if($where != NULL && trim($where)!="")
@@ -134,12 +134,12 @@
 		if($order != NULL && trim($order)!="")
 			$sql .= " ORDER by $order";		
 			
-		$this->result = $this->query($sql) or $this->debugAndDie(($sql));
+		$this->result = $this->query($sql,$debug) or $this->debugAndDie(($sql));
 	
 		return $this->result;	    	
     }
     
-    function fetchRow($where = NULL,$order = NULL){
+    function fetchRow($where = NULL,$order = NULL, $debug = -1){
 		$sql = "SELECT {$this->qField} FROM $this->table";
 		
 		if($where != NULL && trim($where)!="")
@@ -147,7 +147,7 @@
 		if($order != NULL && trim($order)!="")
 			$sql .= " ORDER by $order";		
 			
-		$this->result = $this->queryUniqueObject($sql);
+		$this->result = $this->queryUniqueObject($sql,$debug);
 		
 		if(is_object($this->result))
 			return $this->result;	    	
