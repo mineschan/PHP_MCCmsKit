@@ -8,6 +8,7 @@ include_once("MCCmsKit/database/db.class.php");
 
 //function class
 include_once("MCCmsKit/function/fc.common.php");
+include_once("class/AwesomeImageUpload.php")
 
 /*****************
 **MYSQL Settings**
