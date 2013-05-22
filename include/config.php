@@ -3,12 +3,12 @@
 session_start();
 
 //connect
-include_once("MCCmsKit/database/db.conn.php");
-include_once("MCCmsKit/database/db.class.php");
+include_once("database/db.conn.php");
+include_once("database/db.class.php");
+include_once("database/db.ModelLoader.php");
 
 //function class
-include_once("MCCmsKit/function/fc.common.php");
-include_once("class/AwesomeImageUpload.php")
+include_once("function/AwesomeImageUpload.php")
 
 /*****************
 **MYSQL Settings**
