@@ -8,7 +8,7 @@ include_once("database/db.class.php");
 include_once("database/db.ModelLoader.php");
 
 //function class
-include_once("function/AwesomeImageUpload.php")
+include_once("function/AwesomeImageUpload.php");
 
 /*****************
 **MYSQL Settings**
@@ -22,3 +22,6 @@ define('DB_NAME',"$your_db_name");
 **Database Model Settings**
 *****************/
 define("MODEL_DIR",$_SERVER["DOCUMENT_ROOT"] . $path_to_your_model_dir); //for model loader
+
+
+require("init.php");
