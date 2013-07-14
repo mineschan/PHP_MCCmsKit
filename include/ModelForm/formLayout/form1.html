@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<div class="st_form">
+  
+		<form action="{formAction}" method="post" enctype="multipart/form-data">
+			<h1>{formSubject}</h1>
+			
+			<div id="left">
+				{section_left}
+			</div>	
+			
+			<div id="right">
+				{section_right}
+		   </div>
+		
+	<br class="clear">
+
+{section_bottom}
+
+			<input class="submit1" type="submit" value="送出" />
+		</form>
+	</div>
+	
+	
+<script type="text/javascript">
+	$(function() { 
+		$(".st_form form").submit(function(){
+			
+			var elements =[{required_field}];
+			for(var i = 0; i<=elements.length; i++){
+				
+				if($("#"+elements[i]).val()==""){	
+					csscody.error('<h1>Warning!</h1><p>請填寫必要項目!</p>');
+					return false;
+				}
+			}  
+		})
+	});
+</script>
