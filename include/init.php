@@ -1,3 +1,5 @@
+<?
+
 $loader = ModelLoader::LoadDir(MODEL_DIR,NULL,"Model_",1);
 
 
@@ -23,3 +25,5 @@ foreach($loader as $file){
 		$created[] = $class;
 	}
 }
+
+?>
