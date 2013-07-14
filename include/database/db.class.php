@@ -210,9 +210,10 @@
 		return $result;
 	}
 	
-    function toDictionary($key,$value){
+	
+    function toDict($key,$value){
     	$dict = array();
-    	while($row = $this->fetchNextObject()){
+    	while($row = $this->nextObject()){
     		$dict[$row->$key] = $row->$value;
     	}
 		return $dict;
