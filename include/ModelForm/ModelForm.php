@@ -297,10 +297,11 @@ class ModelForm {
 			case "image":
 			
 				$path = $_SERVER["DOCUMENT_ROOT"].$dataField->url;
-				if(file_exists($path) && $dataField->url != NULL)
+				if(@getimagesize($path)){
 					$element .= '<img src="'.$dataField->url.'" width="'.$dataField->maxW.'" height="'.$dataField->maxH.'" /><br>';
-				else
+				}else{
 					$element .="<i>Not set or File not exist</i><br>";
+				}
 					
 			break;
 			
