@@ -5,7 +5,7 @@ include_once("ModelFormElement.php");
 
 class ModelForm {
 
-  var $model;
+	var $model;
 	var $sectionName;
 	var $sectionKey;
 	var $dataFields;
@@ -59,6 +59,7 @@ class ModelForm {
 		$elementObj = new ModelFormElement();
 		$elementObj->type = "image";
 		$elementObj->url = $url;
+
 		$elementObj->position = $position;		
 		$elementObj->maxW = $maxWidth;
 		$elementObj->maxH = $maxHeight;
@@ -294,7 +295,9 @@ class ModelForm {
 			
 			//image
 			case "image":
-				if(file_exists($_SERVER["DOCUMENT_ROOT"]."/".$dataField->url) && $dataField->url != NULL)
+			
+				$path = $_SERVER["DOCUMENT_ROOT"].$dataField->url;
+				if(file_exists($path) && $dataField->url != NULL)
 					$element .= '<img src="'.$dataField->url.'" width="'.$dataField->maxW.'" height="'.$dataField->maxH.'" /><br>';
 				else
 					$element .="<i>Not set or File not exist</i><br>";
