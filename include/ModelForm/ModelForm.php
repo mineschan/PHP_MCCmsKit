@@ -35,9 +35,9 @@ class ModelForm {
 		$elementObj->type = $type;
 		$elementObj->field = $fieldName;
 		$elementObj->label = $label;
-		$elementObj->position = $position;
-		$elementObj->tableWidth = $tableWidth;
-		$elementObj->default = $default;
+/* 		$elementObj->position = $position; */
+/* 		$elementObj->tableWidth = $tableWidth; */
+/* 		$elementObj->default = $default; */
 		
 		array_push($this->dataFields,$elementObj);
 		return $elementObj;
@@ -113,7 +113,11 @@ class ModelForm {
 			$tmp_options.= ' <a class="awesome" href="'.$this->formURL.'?action=insert">新增'.$this->sectionName.'</a>';
 		
 		//variable
-		$dataTotal = $this->model->numRows($objects);
+		if(is_array($objects)){
+			$dataTotal =  sizeof($objects);
+		}else{
+			$dataTotal = mysql_num_rows($objects);
+		}
 		
 		//
 		//header 
