@@ -2,6 +2,7 @@
 
 $loader = ModelLoader::LoadDir(MODEL_DIR,NULL,"Model_",1);
 
+//method 1
 
 foreach($loader as $file){
 
@@ -25,5 +26,16 @@ foreach($loader as $file){
 		$created[] = $class;
 	}
 }
+
+//method 2
+
+$classesDeclared = get_declared_classes();
+for($i = sizeof($classesDeclared) - 1; $i >= (sizeof($classesDeclared) - sizeof($loader)); $i--){
+	$class = $classesDeclared[$i];
+	$$class = new $class();
+	define($class,$$class);
+}
+
+
 
 ?>
