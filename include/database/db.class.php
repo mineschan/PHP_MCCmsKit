@@ -1,10 +1,10 @@
 <?
   /***
    A PHP Class turn the usage of MYSQL database to real simple and convenient.
-   > Version:		1.0.1
+   > Version:		1.0.2
    > Author:		MineS Chan (mineschan@gmail.com)
    > License: 		LGPL
-   > Last updated: 	17 April ,2013
+   > Last updated: 	10 October ,2014
   ***/
 
   class DB
