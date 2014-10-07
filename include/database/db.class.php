@@ -31,7 +31,10 @@
       $this->mtStart = $this->getMicroTime();
       $this->totalQueries  = 0;
       $this->lastResult = NULL;
-      $link = conn();
+      
+      if(function_exists("conn")){
+        $link = conn();
+      }
     }
     
     /** Connect to DB if you are not yet connected **/
@@ -285,7 +288,7 @@
       */
     function debugAndDie($query)
     {
-      if($defaultDebug){
+      if($this->defaultDebug){
 	      $this->debugQuery($query, "Error");
 	      die("<p style=\"margin: 2px;\">".mysql_error()."</p></div>");
       }
